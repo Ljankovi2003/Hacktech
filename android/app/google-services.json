@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "389009731471",
+    "project_id": "nevera-67eca",
+    "storage_bucket": "nevera-67eca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389009731471:android:4e549ee0991e967c8c65fa",
+        "android_client_info": {
+          "package_name": "com.nevera.Nevera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389009731471-vvq4gr2ja72esiq9c42579dtvh53lfc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWBLRyUHKx_o2eyEqVGpBQkbmVG_f8U0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389009731471-vvq4gr2ja72esiq9c42579dtvh53lfc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
