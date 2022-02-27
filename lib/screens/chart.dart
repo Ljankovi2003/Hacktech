@@ -12,7 +12,9 @@ import 'package:flutter_covid_dashboard_ui/config/styles.dart';
 import 'package:flutter_covid_dashboard_ui/data/data.dart';
 import 'package:flutter_covid_dashboard_ui/screens/stats_screen.dart';
 import 'package:flutter_covid_dashboard_ui/widgets/widgets.dart';
+import 'package:flutter_covid_dashboard_ui/screens/home_screen.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter_covid_dashboard_ui/navigation_drawer.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -160,7 +162,8 @@ class _MyHomePageState extends State<MyHomePage>with WidgetsBindingObserver {
     latitude = "$lat";
     longitude = "$long";
     Time="$time";
-    CollectionReference users= FirebaseFirestore.instance.collection("Locations");
+    CollectionReference users= FirebaseFirestore.instance.collection("Reports");
+    
     users.add({"Latidude":latitude, "Longtitude":longitude, "Time":time});
 
     setState(() {
@@ -211,18 +214,19 @@ class _MyHomePageState extends State<MyHomePage>with WidgetsBindingObserver {
     SizeConfig().init(context);
     
 
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
+            drawer: NavigationDrawer(),
             appBar: AppBar(
-              title: const Text('Acceleration/g'),
-              toolbarHeight: SizeConfig.screenHeight * 0.06082,
-              backgroundColor: Colors.lightBlue[400],
+            backgroundColor: Palette.primaryColor,
+            
+            title: const Text('Acceleration/g')
+              
             ),
             body: Center(
                 child: Column(children: <Widget>[
               Container(
                   width: 1300,
-                  height: SizeConfig.screenHeight * 0.680,
+                  height: SizeConfig.screenHeight * 0.75,
                   child: SfCartesianChart(
                       series: <LineSeries<LiveData, int>>[
                         LineSeries<LiveData, int>(
@@ -297,7 +301,7 @@ class _MyHomePageState extends State<MyHomePage>with WidgetsBindingObserver {
                     textColor: Colors.white,
                   ),
                   SizedBox(
-                  height: SizeConfig.screenHeight * 0.08,
+                  height: SizeConfig.screenHeight * 0.09,
                   width: SizeConfig.screenWidth*0.1,),
                   FlatButton.icon(
                     padding: const EdgeInsets.symmetric(
@@ -348,7 +352,7 @@ class _MyHomePageState extends State<MyHomePage>with WidgetsBindingObserver {
                   
                 ],
               ),
-            ]))));
+            ])));
   }
 
   int time = 199;

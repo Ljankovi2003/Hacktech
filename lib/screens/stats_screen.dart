@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:sizer/sizer.dart';
-
+import 'package:flutter_covid_dashboard_ui/navigation_drawer.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +102,9 @@ class _StatsScreenState extends State<StatsScreen>
       builder: (context, orientation, deviceType) {
         return Scaffold(
           backgroundColor: Palette.primaryColor,
-          appBar: CustomAppBar(),
+          drawer: NavigationDrawer(),
+          appBar: AppBar(backgroundColor: Palette.primaryColor,
+            elevation: 0.0,),
           body: CustomScrollView(
             physics: ClampingScrollPhysics(),
             slivers: <Widget>[

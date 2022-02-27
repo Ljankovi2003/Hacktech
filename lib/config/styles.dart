@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Styles {
   static const buttonTextStyle = TextStyle(
-    fontSize: 16.0,
+    fontSize: 15.0,
     fontWeight: FontWeight.w600,
+    fontFamily: "Cool_font"
   );
 
   static const chartLabelsTextStyle = TextStyle(

@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_covid_dashboard_ui/chart.dart';
+import 'package:flutter_covid_dashboard_ui/navigation_drawer.dart';
 import 'package:flutter_covid_dashboard_ui/config/palette.dart';
 import 'package:flutter_covid_dashboard_ui/config/styles.dart';
 import 'package:flutter_covid_dashboard_ui/data/data.dart';
@@ -104,13 +106,22 @@ class _HomeScreenState extends State<HomeScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       
-      appBar: CustomAppBar(),
+      appBar: AppBar(
+          elevation: 0.0,
+        backgroundColor: Palette.primaryColor ,
+        title: const Text("Home"),
+
+
+      ),
+      drawer:  NavigationDrawer(),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(screenHeight),
           
           _buildYourOwnTest(screenHeight),
+          _buildText(screenHeight),
+          _buildFotter(screenHeight)
         ],
       ),
     );
@@ -119,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
   SliverToBoxAdapter _buildHeader(double screenHeight) {
     return SliverToBoxAdapter(
       child: Container(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: Palette.primaryColor,
           borderRadius: BorderRadius.only(
@@ -133,25 +144,15 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  'Nevera',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: const Color(0xFF1E88E5),
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.bold,
-                    
-                  ),
-                ),
                 
               ],
             ),
-            SizedBox(height: screenHeight * 0.03),
+            
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Did you feel shaking?',
+                  'Contact emergency services',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 22.0,
@@ -161,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: screenHeight * 0.01),
                 
                 Text(
-                  locationMessage+" No shaking detected",
+                  locationMessage+" No earthquakes detected near you.",
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 15.0,
@@ -225,7 +226,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       label: Text(
                         'Send SMS',
-                        style: Styles.buttonTextStyle,
+                        style: 
+                        
+                        Styles.buttonTextStyle,
+
+                        
                       ),
                       textColor: Colors.white,
                       
@@ -238,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+    
   }
 
   
@@ -257,13 +263,14 @@ class _HomeScreenState extends State<HomeScreen> {
             
                 
           },
-          child: Container(
+          child:
+           Container(
         margin: const EdgeInsets.symmetric(
-          vertical: 80.0,
+          vertical: 20.0,
           horizontal: 20.0,
         ),
         padding: const EdgeInsets.all(10.0),
-        height: screenHeight * 0.25,
+        height: screenHeight * 0.2,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFAD9FE4), Palette.primaryColor],
@@ -289,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 SizedBox(height: screenHeight * 0.01),
                 Text(
-                  'To report an\n earthquake.',
+                  'To report an\n earthquake',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -303,5 +310,299 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
      ),
     );
-  }
+    
+      
+    }
+    SliverToBoxAdapter _buildText(double screenHeight) {
+    return SliverToBoxAdapter(
+       child: Padding(
+         padding: const EdgeInsets.only(left:20.0,bottom: 10),
+         child: Text(
+           "Recent earthquakes",
+         style: TextStyle(
+                      fontSize: 20.0,
+                      height: 1.5,
+                      color:const Color(0xFF01579B),
+                      
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Cool_font",  //You can set your custom height here
+                    ) ,),
+       )
+       
+    );}
+    SliverToBoxAdapter _buildFotter(double screenHeight){
+      return SliverToBoxAdapter(
+       child:  SizedBox(
+         
+         height: 200,
+         child: ListView( 
+           scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+                  width: 200,
+                 
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        child:ClipRRect( 
+                          borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)),
+                          child: new Image.asset(
+                          'assets/earth/test2.png',
+                          height: 90.0,
+                          fit: BoxFit.fill,
+                          width: 200,
+                        ),)
+                         
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                    child: Text(
+                    
+                    " Magnitude: 3.9\n Location: CA, USA \n Date:Feb 11, 01:25 ",
+                    
+                    style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color:const Color(0xFF01579B),
+                    
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cool_font",  //You can set your custom height here
+                  ) ,
+        ),
+      ),
+    ),
+                    
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+                  width: 200,
+                 
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        child:ClipRRect( 
+                          borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)),
+                          child: new Image.asset(
+                          'assets/earth/2.png',
+                          height: 90.0,
+                          fit: BoxFit.fill,
+                          width: 200,
+                        ),)
+                         
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                    child: Text(
+                    
+                    " Magnitude: 5.7\n Location: Guam \n Date: Feb 13, 21:29 ",
+                    
+                    style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color:const Color(0xFF01579B),
+                    
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cool_font",  //You can set your custom height here
+                  ) ,
+        ),
+      ),
+    ),
+                    
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+                  width: 200,
+                 
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        child:ClipRRect( 
+                          borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)),
+                          child: new Image.asset(
+                          'assets/earth/3.png',
+                          height: 90.0,
+                          fit: BoxFit.fill,
+                          width: 200,
+                        ),)
+                         
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                    child: Text(
+                    
+                    " Magnitude: 5.3\n Location: Russia \n Date: Feb 13, 19:25 ",
+                    
+                    style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color:const Color(0xFF01579B),
+                    
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cool_font",  //You can set your custom height here
+                  ) ,
+        ),
+      ),
+    ),
+                    
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+                  width: 200,
+                 
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        child:ClipRRect( 
+                          borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)),
+                          child: new Image.asset(
+                          'assets/earth/4.png',
+                          height: 90.0,
+                          fit: BoxFit.fill,
+                          width: 200,
+                        ),)
+                         
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                    child: Text(
+                    
+                    " Magnitude: 5.7\n Location: Iceland \n Date: Feb 14, 21:28",
+                    
+                    style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color:const Color(0xFF01579B),
+                    
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cool_font",  //You can set your custom height here
+                  ) ,
+        ),
+      ),
+    ),
+                    
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+            color: Palette.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+                  width: 200,
+                 
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        child:ClipRRect( 
+                          borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0)),
+                          child: new Image.asset(
+                          'assets/earth/5.png',
+                          height: 90.0,
+                          fit: BoxFit.fill,
+                          width: 200,
+                        ),)
+                         
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                    child: Text(
+                    
+                    " Magnitude: 5.7\n Location: Indonesia \n Date: Feb 13, 09:21",
+                    
+                    style: TextStyle(
+                    fontSize: 15.0,
+                    height: 1.5,
+                    color:const Color(0xFF01579B),
+                    
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cool_font",  //You can set your custom height here
+                  ) ,
+        ),
+      ),
+    ),
+                    
+                    ],
+                  ),
+                ),
+              ],
+            ),
+       ),
+        
+      );
+    
+
 }
+
+
+}
+
