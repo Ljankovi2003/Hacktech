@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage>with WidgetsBindingObserver {
             appBar: AppBar(
             backgroundColor: Palette.primaryColor,
             
-            title: const Text('Acceleration/g')
+            title: const Text('Acceleration/g',)
               
             ),
             body: Center(

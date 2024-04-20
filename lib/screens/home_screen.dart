@@ -109,7 +109,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
           elevation: 0.0,
         backgroundColor: Palette.primaryColor ,
-        title: const Text("Home"),
+        title: const Text("Home",
+        style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "Cool_font",
+                  ),),
 
 
       ),
@@ -358,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           topRight: Radius.circular(20.0),
                           topLeft: Radius.circular(20.0)),
                           child: new Image.asset(
-                          'assets/earth/test2.png',
+                          'assets/earth/4.11.png',
                           height: 90.0,
                           fit: BoxFit.fill,
                           width: 200,
@@ -373,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                     child: Text(
                     
-                    " Magnitude: 3.9\n Location: CA, USA \n Date:Feb 11, 01:25 ",
+                    " Magnitude: 6.1\n Location: Mexico \n Date: Nov 4, 11:02",
                     
                     style: TextStyle(
                     fontSize: 15.0,
@@ -409,7 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           topRight: Radius.circular(20.0),
                           topLeft: Radius.circular(20.0)),
                           child: new Image.asset(
-                          'assets/earth/2.png',
+                          'assets/earth/4.11_2.png',
                           height: 90.0,
                           fit: BoxFit.fill,
                           width: 200,
@@ -424,7 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                     child: Text(
                     
-                    " Magnitude: 5.7\n Location: Guam \n Date: Feb 13, 21:29 ",
+                    " Magnitude: 5.7\n Location: El Salvador \n Date: Nov 4, 05:26 ",
                     
                     style: TextStyle(
                     fontSize: 15.0,
@@ -460,7 +466,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           topRight: Radius.circular(20.0),
                           topLeft: Radius.circular(20.0)),
                           child: new Image.asset(
-                          'assets/earth/3.png',
+                          'assets/earth/3.11.png',
                           height: 90.0,
                           fit: BoxFit.fill,
                           width: 200,
@@ -475,7 +481,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                     child: Text(
                     
-                    " Magnitude: 5.3\n Location: Russia \n Date: Feb 13, 19:25 ",
+                    " Magnitude: 5.1\n Location: Romania \n Date: Nov 3, 05:50 ",
                     
                     style: TextStyle(
                     fontSize: 15.0,
@@ -511,7 +517,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           topRight: Radius.circular(20.0),
                           topLeft: Radius.circular(20.0)),
                           child: new Image.asset(
-                          'assets/earth/4.png',
+                          'assets/earth/OCT 31.png',
                           height: 90.0,
                           fit: BoxFit.fill,
                           width: 200,
@@ -526,7 +532,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                     child: Text(
                     
-                    " Magnitude: 5.7\n Location: Iceland \n Date: Feb 14, 21:28",
+                    " Magnitude: 2.5\n Location: Lugoff, USA \n Date: Oct 31, 02:33",
                     
                     style: TextStyle(
                     fontSize: 15.0,
@@ -562,7 +568,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           topRight: Radius.circular(20.0),
                           topLeft: Radius.circular(20.0)),
                           child: new Image.asset(
-                          'assets/earth/5.png',
+                          'assets/earth/OCT 31.png',
                           height: 90.0,
                           fit: BoxFit.fill,
                           width: 200,

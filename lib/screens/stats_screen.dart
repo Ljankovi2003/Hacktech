@@ -103,7 +103,13 @@ class _StatsScreenState extends State<StatsScreen>
         return Scaffold(
           backgroundColor: Palette.primaryColor,
           drawer: NavigationDrawer(),
-          appBar: AppBar(backgroundColor: Palette.primaryColor,
+          appBar: AppBar(backgroundColor: Palette.primaryColor,title: const Text("Form",
+        style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "Cool_font",
+                  ),),
             elevation: 0.0,),
           body: CustomScrollView(
             physics: ClampingScrollPhysics(),
@@ -131,14 +137,7 @@ class _StatsScreenState extends State<StatsScreen>
         vertical:MediaQuery.of(context).size.height*0.0192,
         horizontal:MediaQuery.of(context).size.width*0.0382 ),
       sliver: SliverToBoxAdapter(
-        child: Text(
-          'FORM:',
-          style: const TextStyle(
-            color: const Color(0xFF1E88E5),
-            fontSize: 35.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        
       ),
     );
   }
@@ -234,9 +233,9 @@ class _StatsScreenState extends State<StatsScreen>
             labelColor: Colors.black,
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
-              Text('<10'),
-              Text('<30'),
-              Text('<60'),
+              Text('<10m'),
+              Text('<30m'),
+              Text('<60m'),
               Text('More'),
             ],
             onTap: (index) {},
