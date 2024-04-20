@@ -11,7 +11,8 @@
 
         
     <application
-        android:name="io.flutter.app.FlutterApplication"
+        android:name="${applicationName}"
+
         android:label="Nevera"
         android:icon="@mipmap/ic_launcher">
         <activity

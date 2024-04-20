@@ -10,7 +10,7 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
-      HomeScreen(),
+      
       StatsScreen(),
       MyHomePage(),
       
@@ -44,7 +44,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             .map((key, value) => MapEntry(
                   key,
                   BottomNavigationBarItem(
-                    title: Text(''),
+                    
                     icon: Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 6.0,
